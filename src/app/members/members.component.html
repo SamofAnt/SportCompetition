@@ -1,9 +1,19 @@
-<h2>Members</h2>
+<h2>Участники</h2>
 <ul class="members">
-  <li (click)="onSelect(member)"
-      [class.selected]="member === selectedMember"
-      *ngFor="let member of members">
-    <span class="badge">{{member.id}}</span> {{member.lastName}}
+  <li *ngFor="let member of members">
+    <a routerLink="/detail/{{member.id}}">
+      <span class="badge">{{member.id}}</span> {{member.lastName}}
+    </a>
+    <button class="delete" title="delete member"
+            (click)="delete(member)">x</button>
   </li>
 </ul>
-<app-member-detail [member]="selectedMember"></app-member-detail>
+<!--<div>-->
+<!--  <label for="new-member">Member name: </label>-->
+<!--  <input id="new-member" #memberName />-->
+<!--  <button class="add-button" (click)="add(memberName.value); memberName.value=''">-->
+<!--    Add hero-->
+<!--  </button>-->
+<!--</div>-->
+
+

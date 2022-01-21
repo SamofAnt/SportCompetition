@@ -1,0 +1,25 @@
+<form>
+  <div class="container">
+    <h1>Регистрация</h1>
+    <p>Пожалуйста, заполните поля для регистрации на соревнование.</p>
+    <hr>
+
+    <label><b>Email</b></label>
+    <input type="text" placeholder="Введите Email" name="email" [ngModel]="email" required>
+
+    <label><b>Фамилия</b></label>
+    <input type="text" placeholder="Введите фамилию" name="lastName" [ngModel]="lastName" required>
+
+    <label><b>Имя</b></label>
+    <input type="text" placeholder="Введите имя" name="firstName" [ngModel]="firstName" required>
+
+    <label><b>Телефон</b></label>
+    <input type="text" placeholder="Введите телефон" name="phone" [ngModel]="phone" required>
+
+    <label><b>Дата рождения</b></label>
+    <br>
+    <input type="date" name="birthday" id="birthday" [(ngModel)]="birthday" required>
+    <p>Создавая учетную запись, вы соглашаетесь с нашими <a routerLink="/rules">правилами</a>.</p>
+    <button type="submit" class="registerbtn" (click)="OnRegister()">Зарегистрироваться</button>
+  </div>
+</form>

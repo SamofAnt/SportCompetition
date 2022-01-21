@@ -11,17 +11,23 @@ import { MessageService } from '../message.service';
 export class MembersComponent implements OnInit {
 
   members: Member[] = [];
-  selectedMember?: Member;
   getMembers(): void {
     this.memberService.getMembers()
       .subscribe(members => this.members = members);
   }
-  constructor(private memberService: MemberService, private messageService: MessageService) {
+  add(lastName: string): void {
+    lastName = lastName.trim();
+    if (!lastName) { return; }
+    this.memberService.addMember({ lastName } as Member)
+      .subscribe(member => {
+        this.members.push(member);
+      });
   }
-
-  onSelect(member: Member): void {
-    this.selectedMember = member;
-    this.messageService.add(`MembersComponent: Selected member id=${member.id}`);
+  delete(member: Member): void {
+    this.members = this.members.filter(h => h !== member);
+    this.memberService.deleteMember(member.id).subscribe();
+  }
+  constructor(private memberService: MemberService) {
   }
 
   ngOnInit(): void {

@@ -6,5 +6,6 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Sport Competitions';
+  title = 'Спортивное соревнование';
+  startDate  = new Date("2022-01-24 12:00:00");
 }
